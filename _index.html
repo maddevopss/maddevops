@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MAD Dev | Web • Mobile • Solutions numériques</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+      :root {
+        --bg: #0f172a;
+        --card: rgba(30, 41, 59, 0.7);
+        --border: rgba(255, 255, 255, 0.1);
+        --primary: #2b6cc4;
+        --secondary: #2a9d8f;
+        --text: #f8fafc;
+        --muted: #94a3b8;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background:
+          radial-gradient(circle at top left, #2b6cc4 0%, transparent 35%), radial-gradient(circle at bottom right, #2a9d8f 0%, transparent 25%),
+          var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 48px;
+      }
+
+      .logo {
+        font-weight: 700;
+        letter-spacing: 2px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo img {
+        height: 25vh; /* ajuste ici la taille */
+        width: auto;
+        display: block;
+        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+      }
+
+      .btn {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 12px 18px;
+        border-radius: 10px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+
+      .btn:hover {
+        opacity: 0.9;
+        transform: scale(1.02);
+      }
+
+      .btn.secondary {
+        background: transparent;
+        border: 1px solid var(--border);
+      }
+
+      section {
+        max-width: 1100px;
+        margin: auto;
+        padding: 90px 48px;
+      }
+
+      h1 {
+        font-size: 58px;
+        line-height: 1.05;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-size: 34px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        color: var(--muted);
+        font-size: 18px;
+        max-width: 750px;
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
+
+      .cta {
+        margin-top: 30px;
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+      }
+
+      .card {
+        background: rgba(30, 41, 59, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        padding: 22px;
+        backdrop-filter: blur(10px);
+        transition: transform 0.2s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 6px 12px;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 18px;
+      }
+
+      .highlight {
+        color: var(--secondary);
+        font-weight: 600;
+      }
+
+      footer {
+        text-align: center;
+        padding: 40px;
+        color: var(--muted);
+        border-top: 1px solid var(--border);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <img src="./img/logo.png" alt="MAD Dev" />
+        <span style="font-weight: 600; letter-spacing: 1px">
+          Marc-André Dufour<br />
+          MAD DevOps
+        </span>
+      </div>
+
+      <a class="btn" href="mailto:contact@maddevops.com"> Parle-moi de ton projet </a>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="tag">Web • Mobile • Solutions numériques</div>
+
+      <h1>MAD DevOps transforme vos idées en produits web et numériques simples, rapides et efficaces.</h1>
+
+      <p>
+        On aide les entreprises et entrepreneurs à créer des sites web, applications mobiles et outils numériques simples, rapides et efficaces.
+      </p>
+
+      <div class="cta">
+        <a class="btn" href="mailto:contact@maddevops.com"> Dis-moi ton idée </a>
+        <a class="btn secondary" href="#services"> Voir ce qu'on fait </a>
+      </div>
+    </section>
+
+    <!-- POSITIONNEMENT -->
+    <section>
+      <h2>Simple. Direct. Efficace.</h2>
+
+      <p>
+        Pas de jargon compliqué.<br />
+        Pas de processus interminables.<br />
+        Pas de technologie inutile.
+      </p>
+
+      <p>On construit ce dont tu as réellement besoin : un produit web ou mobile qui marche, point final.</p>
+
+      <p class="highlight">
+        ✔ Sites web modernes<br />
+        ✔ Applications mobiles<br />
+        ✔ Plateformes sur mesure<br />
+        ✔ Automatisation et outils internes
+      </p>
+    </section>
+
+    <!-- PROBLÈMES -->
+    <section>
+      <h2>Tu es probablement ici parce que…</h2>
+
+      <div class="grid">
+        <div class="card">Tu veux un site web professionnel</div>
+        <div class="card">Tu veux une app mobile pour ton idée</div>
+        <div class="card">Ton système actuel est trop lent ou vieux</div>
+        <div class="card">Tu veux automatiser des tâches dans ton business</div>
+        <div class="card">Tu veux lancer un produit rapidement</div>
+        <div class="card">Tu ne sais pas par où commencer techniquement</div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <h2>Ce qu’on fait</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>🌐 Sites web</h3>
+          <p>Sites modernes, rapides et adaptés à ton entreprise.</p>
+        </div>
+
+        <div class="card">
+          <h3>📱 Applications mobiles</h3>
+          <p>Apps simples, efficaces et pensées pour tes utilisateurs.</p>
+        </div>
+
+        <div class="card">
+          <h3>⚙️ Solutions sur mesure</h3>
+          <p>Outils internes, automatisation, plateformes personnalisées.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section>
+      <h2>Comment ça marche</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>1. Discussion</h3>
+          <p>Tu nous expliques ton idée ou ton problème.</p>
+        </div>
+
+        <div class="card">
+          <h3>2. Plan simple</h3>
+          <p>On te propose une solution claire et rapide.</p>
+        </div>
+
+        <div class="card">
+          <h3>3. Construction</h3>
+          <p>On développe ton produit et on te le livre prêt à utiliser.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <h2 class="section-title">Projet en vedette</h2>
+
+      <div class="card">
+        <span class="logo">
+          <img src="./img/projet/logo_sf.png" alt="Fines Herbes" />
+        </span>
+        <h3>Au Royaume des Fines Herbes</h3>
+        <p>Application de gestion et d'importation de données Excel développée par MAD DevOps.</p>
+
+        <br />
+
+        <a class="btn btn-primary" href="https://fines-herbes.maddevops.com" target="_blank"> Découvrir le projet </a>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section>
+      <h2>On peut construire ton idée.</h2>
+
+      <p>Peu importe si c'est un site, une app ou un outil interne… si c'est clair, on peut le bâtir rapidement.</p>
+
+      <div class="cta">
+        <a class="btn" href="mailto:contact@maddevops.com"> Parle-moi de ton projet </a>
+      </div>
+    </section>
+
+    <footer>MAD Dev — Web • Mobile • Solutions numériques simples et efficaces.</footer>
+  </body>
+</html>
