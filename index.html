@@ -10,6 +10,25 @@
       name="description"
       content="MAD DevOps aide les travailleurs autonomes, PME et petites organisations à créer des sites Web, applications et automatisations simples pour réduire les tâches répétitives et clarifier leurs processus."
     />
+    <link rel="canonical" href="https://www.maddevops.com/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MAD DevOps | Web, mobile et automatisation" />
+    <meta
+      property="og:description"
+      content="Des sites Web, applications et automatisations simples pour clarifier vos processus, réduire les tâches répétitives et créer des outils adaptés à votre réalité."
+    />
+    <meta property="og:url" content="https://www.maddevops.com/" />
+    <meta property="og:image" content="https://www.maddevops.com/img/logo.png" />
+    <meta property="og:locale" content="fr_CA" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="MAD DevOps | Web, mobile et automatisation" />
+    <meta
+      name="twitter:description"
+      content="Des sites Web, applications et automatisations simples pour clarifier vos processus, réduire les tâches répétitives et créer des outils adaptés à votre réalité."
+    />
+    <meta name="twitter:image" content="https://www.maddevops.com/img/logo.png" />
 
     <link rel="icon" href="./img/logo.png" type="image/x-icon" />
 
@@ -19,6 +38,23 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "MAD DevOps",
+        "url": "https://www.maddevops.com/",
+        "logo": "https://www.maddevops.com/img/logo.png",
+        "founder": {
+          "@type": "Person",
+          "name": "Marc-André Dufour"
+        },
+        "areaServed": "Québec, Canada",
+        "description": "MAD DevOps aide les travailleurs autonomes, PME et petites organisations à créer des sites Web, applications et automatisations simples pour clarifier leurs processus.",
+        "sameAs": ["https://github.com/bleeband"]
+      }
+    </script>
 
     <style>
       :root {
@@ -66,6 +102,24 @@
 
       a {
         color: inherit;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        transform: translateY(-160%);
+        background: var(--white);
+        color: var(--bg);
+        padding: 0.75rem 1rem;
+        border-radius: 999px;
+        font-weight: 800;
+        text-decoration: none;
+        z-index: 1000;
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
       }
 
       .container {
@@ -380,6 +434,12 @@
         padding: clamp(1.6rem, 4vw, 3rem);
       }
 
+      .contact-note {
+        margin-top: 1rem;
+        color: var(--muted-soft);
+        font-size: 0.95rem;
+      }
+
       footer {
         text-align: center;
         padding: 3rem 1rem;
@@ -450,6 +510,8 @@
   </head>
 
   <body>
+    <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+
     <header class="site-header container">
       <nav class="nav" aria-label="Navigation principale">
         <a class="brand" href="/" aria-label="MAD DevOps — Accueil">
@@ -466,7 +528,7 @@
       </nav>
     </header>
 
-    <main>
+    <main id="main-content">
       <section class="hero container" aria-labelledby="hero-title">
         <div class="hero-grid">
           <div>
@@ -483,7 +545,7 @@
             </p>
 
             <div class="hero-actions">
-              <a href="mailto:contact@maddevops.com" class="btn btn-primary">Parler de votre besoin</a>
+              <a href="mailto:contact@maddevops.com?subject=Demande%20de%20projet%20MAD%20DevOps" class="btn btn-primary">Parler de votre besoin</a>
               <a href="#services" class="btn btn-secondary">Voir les façons de commencer</a>
             </div>
           </div>
@@ -671,9 +733,10 @@
           </p>
 
           <div class="hero-actions">
-            <a href="mailto:contact@maddevops.com" class="btn btn-primary">Parler de votre besoin</a>
+            <a href="mailto:contact@maddevops.com?subject=Demande%20de%20projet%20MAD%20DevOps" class="btn btn-primary">Parler de votre besoin</a>
             <a href="https://github.com/bleeband" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Voir mes projets</a>
           </div>
+          <p class="contact-note">Réponse humaine. Pas besoin d’un cahier des charges. Une description simple suffit.</p>
         </div>
       </section>
     </main>
