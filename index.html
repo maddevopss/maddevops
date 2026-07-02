@@ -353,6 +353,29 @@
         color: var(--muted);
       }
 
+      .package-label {
+        width: fit-content;
+        margin-bottom: 1rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 800;
+      }
+
+      .package-card.featured {
+        background:
+          linear-gradient(135deg, rgba(43, 108, 196, 0.24), rgba(42, 157, 143, 0.18)),
+          rgba(255, 255, 255, 0.045);
+      }
+
+      .package-note {
+        margin-top: 1rem;
+        color: var(--muted-soft);
+        font-size: 0.92rem;
+      }
+
       .steps {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -492,6 +515,7 @@
 
         <div class="nav-links">
           <a href="#services">Services</a>
+          <a href="#forfaits">Forfaits</a>
           <a href="#madsuite">MADSuite</a>
           <a href="#approche">Approche</a>
           <a href="#projet">Projet</a>
@@ -518,7 +542,7 @@
 
             <div class="hero-actions">
               <a href="mailto:contact@maddevops.com?subject=Demande%20de%20projet%20MAD%20DevOps" class="btn btn-primary">Parler de votre besoin</a>
-              <a href="#services" class="btn btn-secondary">Voir les services</a>
+              <a href="#forfaits" class="btn btn-secondary">Voir les forfaits de départ</a>
             </div>
           </div>
 
@@ -583,6 +607,56 @@
             <p>Pour remplacer un processus fragile par un tableau de bord, portail ou mini-plateforme métier.</p>
           </article>
         </div>
+      </section>
+
+      <section class="container" id="forfaits" aria-labelledby="forfaits-title">
+        <div class="section-heading">
+          <p class="section-kicker">Forfaits de départ</p>
+          <h2 id="forfaits-title">Des points d’entrée clairs pour démarrer sans se perdre.</h2>
+          <p class="section-text">
+            Chaque projet commence par un besoin précis. Ces forfaits donnent une base simple pour choisir la bonne première étape.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card package-card">
+            <div class="package-label">Présence Web</div>
+            <h3>Page claire</h3>
+            <ul>
+              <li>Page Web professionnelle.</li>
+              <li>Message clair et structure simple.</li>
+              <li>Section services et contact.</li>
+              <li>Mise en ligne de base.</li>
+            </ul>
+            <p class="package-note">Idéal pour clarifier votre offre et commencer à recevoir des demandes.</p>
+          </article>
+
+          <article class="card package-card featured">
+            <div class="package-label">Le plus utile pour démarrer</div>
+            <h3>Mini-outil métier</h3>
+            <ul>
+              <li>Petit outil Web sur mesure.</li>
+              <li>Formulaire, tableau ou suivi simple.</li>
+              <li>Données mieux structurées.</li>
+              <li>Livraison par étapes courtes.</li>
+            </ul>
+            <p class="package-note">Idéal pour remplacer un fichier fragile ou un suivi manuel qui prend trop de place.</p>
+          </article>
+
+          <article class="card package-card">
+            <div class="package-label">Processus répétitif</div>
+            <h3>Automatisation ciblée</h3>
+            <ul>
+              <li>Analyse d’un processus répétitif.</li>
+              <li>Réduction du copier-coller.</li>
+              <li>Connexion simple entre outils si pertinent.</li>
+              <li>Documentation courte pour l’usage.</li>
+            </ul>
+            <p class="package-note">Idéal quand une tâche revient souvent et mérite enfin d’être simplifiée.</p>
+          </article>
+        </div>
+
+        <p class="contact-note">Les forfaits servent de point de départ. La portée finale se confirme après une courte discussion.</p>
       </section>
 
       <section class="container" id="madsuite" aria-labelledby="madsuite-title">
