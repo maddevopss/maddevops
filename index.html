@@ -249,14 +249,17 @@
 
       .hero-panel,
       .card,
-      .contact-box {
+      .contact-box,
+      .faq-item {
         background: var(--card);
         border: 1px solid var(--border);
         border-radius: var(--radius);
         backdrop-filter: blur(18px);
       }
 
-      .hero-panel {
+      .hero-panel,
+      .card,
+      .faq-item {
         padding: 1.6rem;
       }
 
@@ -311,23 +314,22 @@
         max-width: 800px;
       }
 
-      .grid {
+      .grid,
+      .faq-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
         gap: 1.25rem;
       }
 
-      .card {
-        padding: 1.6rem;
-      }
-
-      .card h3 {
+      .card h3,
+      .faq-item h3 {
         margin-bottom: 0.75rem;
         font-size: 1.15rem;
       }
 
       .card p,
-      .card li {
+      .card li,
+      .faq-item p {
         color: var(--muted-soft);
       }
 
@@ -519,6 +521,7 @@
           <a href="#madsuite">MADSuite</a>
           <a href="#approche">Approche</a>
           <a href="#projet">Projet</a>
+          <a href="#faq">FAQ</a>
           <a href="#contact">Contact</a>
         </div>
       </nav>
@@ -734,6 +737,36 @@
             <a class="btn btn-primary" href="https://fines-herbes.maddevops.com" target="_blank" rel="noopener noreferrer">Découvrir le projet</a>
           </div>
         </article>
+      </section>
+
+      <section class="container" id="faq" aria-labelledby="faq-title">
+        <div class="section-heading">
+          <p class="section-kicker">Questions fréquentes</p>
+          <h2 id="faq-title">Pas besoin d’avoir tout préparé avant de me contacter.</h2>
+          <p class="section-text">Une première discussion sert justement à clarifier le besoin, la portée et la prochaine étape réaliste.</p>
+        </div>
+
+        <div class="faq-grid">
+          <article class="faq-item">
+            <h3>Est-ce que je dois déjà savoir exactement ce que je veux?</h3>
+            <p>Non. Une idée, un irritant ou un processus qui vous ralentit suffit pour commencer la discussion.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3>Est-ce que vous faites seulement des gros projets?</h3>
+            <p>Non. Le but est souvent de commencer petit : page claire, mini-outil, automatisation ou première version utile.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3>Combien de temps ça prend?</h3>
+            <p>Ça dépend de la portée. L’objectif est de découper le projet en étapes courtes et vérifiables.</p>
+          </article>
+
+          <article class="faq-item">
+            <h3>Est-ce que je garde le contrôle du projet?</h3>
+            <p>Oui. Les décisions importantes sont clarifiées avec vous avant de construire plus loin.</p>
+          </article>
+        </div>
       </section>
 
       <section class="container" id="contact" aria-labelledby="contact-title">
