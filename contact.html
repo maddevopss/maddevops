@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="fr-CA">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | MAD DevOps</title>
+    <meta
+      name="description"
+      content="Demandez une consultation ou décrivez votre projet à MAD DevOps avec un formulaire simple et humain."
+    />
+    <link rel="canonical" href="https://www.maddevops.com/contact.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Contact | MAD DevOps" />
+    <meta
+      property="og:description"
+      content="Un formulaire simple pour parler d'un site web, d'une application, d'une automatisation ou d'un projet MADSuite."
+    />
+    <meta property="og:url" content="https://www.maddevops.com/contact.html" />
+    <meta property="og:image" content="https://www.maddevops.com/img/logo.png" />
+    <meta property="og:locale" content="fr_CA" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Contact | MAD DevOps" />
+    <meta
+      name="twitter:description"
+      content="Un formulaire simple pour parler d'un projet numérique sans jargon inutile."
+    />
+    <meta name="twitter:image" content="https://www.maddevops.com/img/logo.png" />
+    <link rel="icon" href="./img/logo.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0f172a;
+        --card: rgba(30, 41, 59, 0.72);
+        --border: rgba(255, 255, 255, 0.12);
+        --primary: #2b6cc4;
+        --secondary: #2a9d8f;
+        --text: #f8fafc;
+        --muted: #cbd5e1;
+        --muted-soft: #94a3b8;
+        --white: #fff;
+        --radius: 22px;
+        --max-width: 1160px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(43, 108, 196, 0.42) 0%, transparent 34%),
+          radial-gradient(circle at bottom right, rgba(42, 157, 143, 0.32) 0%, transparent 28%),
+          var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .container {
+        width: min(var(--max-width), 90%);
+        margin: 0 auto;
+      }
+
+      .site-header {
+        padding: 1.35rem 0;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .brand img {
+        height: 70px;
+        width: auto;
+        display: block;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.15rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .nav-links a {
+        color: var(--muted);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.94rem;
+      }
+
+      .nav-links a:hover {
+        color: var(--white);
+      }
+
+      .hero {
+        padding: 3.5rem 0 2.25rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+        gap: 2rem;
+        align-items: start;
+      }
+
+      .badge {
+        display: inline-flex;
+        width: fit-content;
+        padding: 0.5rem 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 999px;
+        margin-bottom: 1.25rem;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.05);
+        font-weight: 800;
+        font-size: 0.92rem;
+      }
+
+      h1 {
+        max-width: 900px;
+        font-size: clamp(2.45rem, 6vw, 4.85rem);
+        line-height: 0.98;
+        letter-spacing: -0.06em;
+        margin-bottom: 1.1rem;
+      }
+
+      .gradient {
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero-text,
+      .section-text,
+      .helper-text {
+        color: var(--muted);
+        max-width: 760px;
+        font-size: 1.02rem;
+      }
+
+      .section-block {
+        padding: 1.5rem 0 4rem;
+      }
+
+      .section-heading {
+        margin-bottom: 1.35rem;
+      }
+
+      .section-kicker {
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-size: 0.76rem;
+        color: var(--secondary);
+        font-weight: 800;
+        margin-bottom: 0.7rem;
+      }
+
+      h2 {
+        font-size: clamp(1.65rem, 3vw, 2.5rem);
+        line-height: 1.05;
+        margin-bottom: 0.85rem;
+      }
+
+      .contact-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+        gap: 1.5rem;
+      }
+
+      .card,
+      .form-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 18px 48px rgba(2, 6, 23, 0.28);
+      }
+
+      .card {
+        padding: 1.35rem;
+      }
+
+      .form-card {
+        padding: 1.5rem;
+      }
+
+      .info-list {
+        list-style: none;
+        display: grid;
+        gap: 0.9rem;
+        margin-top: 1.15rem;
+      }
+
+      .info-list li {
+        padding: 0.9rem 1rem;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--muted);
+      }
+
+      .info-list strong {
+        color: var(--text);
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+      }
+
+      .field.full {
+        grid-column: 1 / -1;
+      }
+
+      label {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        background: rgba(15, 23, 42, 0.72);
+        color: var(--text);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 14px;
+        padding: 0.95rem 1rem;
+        font: inherit;
+        outline: none;
+      }
+
+      textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: rgba(42, 157, 143, 0.8);
+        box-shadow: 0 0 0 4px rgba(42, 157, 143, 0.12);
+      }
+
+      .form-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 1.25rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border: 0;
+        border-radius: 14px;
+        padding: 0.95rem 1.2rem;
+        font-weight: 800;
+        text-decoration: none;
+        cursor: pointer;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          opacity 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: var(--white);
+        box-shadow: 0 14px 28px rgba(43, 108, 196, 0.24);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--text);
+        border: 1px solid var(--border);
+      }
+
+      .contact-note {
+        margin-top: 1rem;
+        color: var(--muted-soft);
+        font-size: 0.95rem;
+      }
+
+      .footer-note {
+        width: min(var(--max-width), 90%);
+        margin: 0 auto;
+        padding: 0 0 2.25rem;
+        color: var(--muted-soft);
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid,
+        .contact-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          width: min(var(--max-width), 92%);
+        }
+
+        .hero {
+          padding-top: 2.4rem;
+        }
+
+        .card,
+        .form-card {
+          padding: 1.1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header container">
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="brand" href="./index.html" aria-label="MAD DevOps — Accueil"><img src="./img/logo.png" alt="MAD DevOps" /></a>
+        <div class="nav-links">
+          <a href="./index.html#services">Services</a>
+          <a href="./index.html#madsuite">MADSuite</a>
+          <a href="./index.html#projet">Projet</a>
+          <a href="./index.html#faq">FAQ</a>
+          <a href="./index.html">Accueil</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero container" aria-labelledby="contact-hero-title">
+        <div class="hero-grid">
+          <div>
+            <div class="badge">Contact • Consultation • Projet</div>
+            <h1 id="contact-hero-title">Parlez-moi de votre besoin, simplement.</h1>
+            <p class="hero-text">
+              Décrivez ce que vous voulez clarifier, simplifier ou construire. Une idée floue, un irritant récurrent ou un projet déjà amorcé suffit pour commencer.
+            </p>
+          </div>
+          <aside class="card" aria-label="Ce que vous pouvez m'envoyer">
+            <h2>Ce que je peux regarder avec vous</h2>
+            <ul class="info-list">
+              <li><strong>Site web</strong> pour présenter clairement votre offre.</li>
+              <li><strong>Application web</strong> pour gérer un besoin précis.</li>
+              <li><strong>Application mobile</strong> pour un usage simple sur le terrain.</li>
+              <li><strong>Automatisation</strong> pour réduire le travail répétitif.</li>
+              <li><strong>MADSuite</strong> pour le flux d'inscription ou un besoin lié au produit.</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section-block container" aria-labelledby="contact-form-title">
+        <div class="section-heading">
+          <p class="section-kicker">Formulaire minimal</p>
+          <h2 id="contact-form-title">Envoyez une demande claire, sans remplir un gros formulaire.</h2>
+          <p class="section-text">
+            Ce formulaire sert à cadrer la prochaine conversation. Si votre besoin concerne MADSuite, vous pouvez aussi le préciser ici sans changer le reste du processus.
+          </p>
+        </div>
+
+        <div class="contact-layout">
+          <div class="card">
+            <h3>Comment ça fonctionne</h3>
+            <ul class="info-list">
+              <li><strong>Vous décrivez</strong> votre besoin en quelques lignes.</li>
+              <li><strong>Je relis</strong> votre contexte et votre priorité.</li>
+              <li><strong>Je réponds</strong> avec la prochaine étape la plus simple.</li>
+            </ul>
+            <p class="contact-note">Réponse humaine. Aucun outil externe n'est nécessaire pour envoyer cette demande.</p>
+          </div>
+
+          <form class="form-card" id="contact-form" novalidate>
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Nom</label>
+                <input id="name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label for="email">Courriel</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div class="field full">
+                <label for="need">Type de besoin</label>
+                <select id="need" name="need" required>
+                  <option value="" selected disabled>Choisir une option</option>
+                  <option>Site web</option>
+                  <option>Application web</option>
+                  <option>Application mobile</option>
+                  <option>Automatisation</option>
+                  <option>Tableau de bord / outil interne</option>
+                  <option>MADSuite</option>
+                  <option>Je ne suis pas certain</option>
+                </select>
+              </div>
+              <div class="field full">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Décrivez le besoin, le contexte ou le problème à résoudre" required></textarea>
+              </div>
+              <div class="field">
+                <label for="budget">Budget approximatif (optionnel)</label>
+                <input id="budget" name="budget" type="text" placeholder="Ex. 2 000 $ à 5 000 $" />
+              </div>
+              <div class="field">
+                <label for="delay">Délai souhaité (optionnel)</label>
+                <input id="delay" name="delay" type="text" placeholder="Ex. Ce trimestre, le mois prochain" />
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Envoyer ma demande</button>
+              <a class="btn btn-secondary" href="mailto:contact@maddevops.com">Écrire par courriel</a>
+            </div>
+            <p class="contact-note">
+              Le bouton ouvre votre courriel avec un message prérempli. Si vous préférez, vous pouvez aussi m'écrire directement à contact@maddevops.com.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <p class="footer-note">MAD DevOps garde MADSuite sur son flux existant. Cette page sert seulement de porte d'entrée contact et consultation.</p>
+
+    <script src="./tracking.js"></script>
+    <script>
+      const form = document.getElementById("contact-form");
+      const formCard = document.querySelector(".form-card");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        const data = new FormData(form);
+        const lines = [
+          `Nom: ${data.get("name")}`,
+          `Courriel: ${data.get("email")}`,
+          `Type de besoin: ${data.get("need")}`,
+          `Message: ${data.get("message")}`,
+        ];
+
+        const budget = data.get("budget");
+        const delay = data.get("delay");
+
+        if (budget) {
+          lines.push(`Budget approximatif: ${budget}`);
+        }
+
+        if (delay) {
+          lines.push(`Délai souhaité: ${delay}`);
+        }
+
+        const subject = encodeURIComponent(`Demande de consultation MAD DevOps - ${data.get("need")}`);
+        const body = encodeURIComponent(lines.join("\n\n"));
+
+        // Affiche un message de succès avant d'ouvrir le client email
+        const successMessage = document.createElement("div");
+        successMessage.style.cssText = "background:rgba(42,157,143,0.2);border:1px solid rgba(42,157,143,0.5);border-radius:14px;padding:1.5rem;margin-bottom:1.5rem;color:var(--text);";
+        successMessage.innerHTML = `
+          <h3 style="margin-bottom:0.5rem;color:var(--secondary);">✓ Merci pour votre demande!</h3>
+          <p style="color:var(--muted);margin:0;">Votre message est prêt à être envoyé à contact@maddevops.com. Vous recevrez une réponse dans les 24 heures.</p>
+          <p style="color:var(--muted-soft);margin:0.75rem 0 0 0;font-size:0.9rem;">Si le client email ne s'ouvre pas, vous pouvez aussi <a href="mailto:contact@maddevops.com" style="color:var(--secondary);text-decoration:underline;">cliquer ici</a> ou écrire directement à contact@maddevops.com.</p>
+        `;
+        formCard.insertBefore(successMessage, form);
+
+        // Scroll vers le message de succès
+        successMessage.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        // Ouvre le client email après un court délai
+        setTimeout(() => {
+          window.location.href = `mailto:contact@maddevops.com?subject=${subject}&body=${body}`;
+        }, 500);
+      });
+    </script>
+  </body>
+</html>
