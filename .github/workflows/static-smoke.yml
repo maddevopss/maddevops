@@ -23,6 +23,7 @@ jobs:
           test -f index.html
           test -f contact.html
           test -f img/logo.png
+          test -f tracking.js
 
       - name: Validate basic HTML metadata
         run: |
@@ -34,3 +35,9 @@ jobs:
           grep -q 'name="viewport"' contact.html
           grep -q '<title>' contact.html
           grep -q 'name="description"' contact.html
+
+      - name: Validate privacy-light tracking
+        run: |
+          grep -q 'function trackEvent' tracking.js
+          grep -q 'window.dataLayer' tracking.js
+          ! grep -q 'cta_text' tracking.js
