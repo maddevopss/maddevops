@@ -72,6 +72,24 @@
         color: inherit;
       }
 
+      .skip-link {
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        transform: translateY(-160%);
+        background: var(--white);
+        color: var(--bg);
+        padding: 0.75rem 1rem;
+        border-radius: 999px;
+        font-weight: 800;
+        text-decoration: none;
+        z-index: 1000;
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
       .container {
         width: min(var(--max-width), 90%);
         margin: 0 auto;
@@ -150,12 +168,6 @@
         margin-bottom: 1.1rem;
       }
 
-      .gradient {
-        background: linear-gradient(90deg, var(--primary), var(--secondary));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
       .hero-text,
       .section-text,
       .helper-text {
@@ -202,12 +214,9 @@
         box-shadow: 0 18px 48px rgba(2, 6, 23, 0.28);
       }
 
-      .card {
-        padding: 1.35rem;
-      }
-
+      .card,
       .form-card {
-        padding: 1.5rem;
+        padding: 1.35rem;
       }
 
       .info-list {
@@ -271,9 +280,11 @@
 
       input:focus,
       select:focus,
-      textarea:focus {
-        border-color: rgba(42, 157, 143, 0.8);
-        box-shadow: 0 0 0 4px rgba(42, 157, 143, 0.12);
+      textarea:focus,
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid rgba(42, 157, 143, 0.8);
+        outline-offset: 3px;
       }
 
       .form-actions {
@@ -323,6 +334,37 @@
         font-size: 0.95rem;
       }
 
+      .success-message {
+        background: rgba(42, 157, 143, 0.2);
+        border: 1px solid rgba(42, 157, 143, 0.5);
+        border-radius: 14px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--text);
+      }
+
+      .success-message h3 {
+        color: var(--secondary);
+        margin-bottom: 0.5rem;
+      }
+
+      .success-message p {
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .success-message p + p {
+        color: var(--muted-soft);
+        margin-top: 0.75rem;
+        font-size: 0.9rem;
+      }
+
+      .success-message a {
+        color: var(--secondary);
+        text-decoration: underline;
+        font-weight: 800;
+      }
+
       .footer-note {
         width: min(var(--max-width), 90%);
         margin: 0 auto;
@@ -361,9 +403,22 @@
           padding: 1.1rem;
         }
       }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
     </style>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+
     <header class="site-header container">
       <nav class="nav" aria-label="Navigation principale">
         <a class="brand" href="./index.html" aria-label="MAD DevOps — Accueil"><img src="./img/logo.png" alt="MAD DevOps" /></a>
@@ -377,7 +432,7 @@
       </nav>
     </header>
 
-    <main>
+    <main id="main-content">
       <section class="hero container" aria-labelledby="contact-hero-title">
         <div class="hero-grid">
           <div>
@@ -476,6 +531,39 @@
       const form = document.getElementById("contact-form");
       const formCard = document.querySelector(".form-card");
 
+      function appendText(parent, tagName, text) {
+        const node = document.createElement(tagName);
+        node.textContent = text;
+        parent.appendChild(node);
+        return node;
+      }
+
+      function showSuccessMessage(mailtoHref) {
+        const existingMessage = document.getElementById("contact-success-message");
+        if (existingMessage) {
+          existingMessage.remove();
+        }
+
+        const successMessage = document.createElement("div");
+        successMessage.id = "contact-success-message";
+        successMessage.className = "success-message";
+        successMessage.setAttribute("role", "status");
+        successMessage.setAttribute("aria-live", "polite");
+
+        appendText(successMessage, "h3", "✓ Merci pour votre demande!");
+        appendText(successMessage, "p", "Votre message est prêt à être envoyé à contact@maddevops.com. Vous recevrez une réponse dans les 24 heures.");
+
+        const fallback = appendText(successMessage, "p", "Si le client email ne s'ouvre pas, vous pouvez aussi ");
+        const fallbackLink = document.createElement("a");
+        fallbackLink.href = mailtoHref;
+        fallbackLink.textContent = "cliquer ici";
+        fallback.appendChild(fallbackLink);
+        fallback.append(" ou écrire directement à contact@maddevops.com.");
+
+        formCard.insertBefore(successMessage, form);
+        successMessage.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
       form.addEventListener("submit", (event) => {
         event.preventDefault();
 
@@ -505,23 +593,12 @@
 
         const subject = encodeURIComponent(`Demande de consultation MAD DevOps - ${data.get("need")}`);
         const body = encodeURIComponent(lines.join("\n\n"));
+        const mailtoHref = `mailto:contact@maddevops.com?subject=${subject}&body=${body}`;
 
-        // Affiche un message de succès avant d'ouvrir le client email
-        const successMessage = document.createElement("div");
-        successMessage.style.cssText = "background:rgba(42,157,143,0.2);border:1px solid rgba(42,157,143,0.5);border-radius:14px;padding:1.5rem;margin-bottom:1.5rem;color:var(--text);";
-        successMessage.innerHTML = `
-          <h3 style="margin-bottom:0.5rem;color:var(--secondary);">✓ Merci pour votre demande!</h3>
-          <p style="color:var(--muted);margin:0;">Votre message est prêt à être envoyé à contact@maddevops.com. Vous recevrez une réponse dans les 24 heures.</p>
-          <p style="color:var(--muted-soft);margin:0.75rem 0 0 0;font-size:0.9rem;">Si le client email ne s'ouvre pas, vous pouvez aussi <a href="mailto:contact@maddevops.com" style="color:var(--secondary);text-decoration:underline;">cliquer ici</a> ou écrire directement à contact@maddevops.com.</p>
-        `;
-        formCard.insertBefore(successMessage, form);
+        showSuccessMessage(mailtoHref);
 
-        // Scroll vers le message de succès
-        successMessage.scrollIntoView({ behavior: "smooth", block: "center" });
-
-        // Ouvre le client email après un court délai
         setTimeout(() => {
-          window.location.href = `mailto:contact@maddevops.com?subject=${subject}&body=${body}`;
+          window.location.href = mailtoHref;
         }, 500);
       });
     </script>
