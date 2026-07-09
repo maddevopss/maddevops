@@ -35,9 +35,16 @@ jobs:
           grep -q 'name="viewport"' contact.html
           grep -q '<title>' contact.html
           grep -q 'name="description"' contact.html
+          grep -q 'class="skip-link"' contact.html
+          grep -q 'id="main-content"' contact.html
 
       - name: Validate privacy-light tracking
         run: |
           grep -q 'function trackEvent' tracking.js
           grep -q 'window.dataLayer' tracking.js
           ! grep -q 'cta_text' tracking.js
+
+      - name: Validate contact form safety
+        run: |
+          ! grep -q 'innerHTML' contact.html
+          grep -q 'aria-live' contact.html
