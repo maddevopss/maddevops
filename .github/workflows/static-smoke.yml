@@ -42,9 +42,15 @@ jobs:
         run: |
           grep -q 'function trackEvent' tracking.js
           grep -q 'window.dataLayer' tracking.js
-          ! grep -q 'cta_text' tracking.js
+          if grep -q 'cta_text' tracking.js; then
+            echo 'cta_text should not be tracked'
+            exit 1
+          fi
 
       - name: Validate contact form safety
         run: |
-          ! grep -q 'innerHTML' contact.html
+          if grep -q 'innerHTML' contact.html; then
+            echo 'contact.html should not use innerHTML'
+            exit 1
+          fi
           grep -q 'aria-live' contact.html
