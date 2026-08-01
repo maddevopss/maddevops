@@ -4,14 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>MAD DevOps | Web, mobile et automatisation</title>
+    <title>MAD DevOps | MADSuite & solutions web, mobile et automatisation</title>
 
     <meta
       name="description"
-      content="MAD DevOps aide les travailleurs autonomes, PME et petites organisations à créer des sites Web, applications et automatisations simples pour réduire les tâches répétitives et clarifier leurs processus."
+      content="MAD DevOps conçoit MADSuite, une plateforme de gestion tout-en-un pour les travailleurs autonomes et petites équipes (clients, projets, temps, facturation, rapports), et développe des sites, applications et automatisations sur mesure."
     />
+    <link rel="canonical" href="https://maddevops.com/" />
 
-    <link rel="icon" href="./img/logo.png" type="image/x-icon" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://maddevops.com/" />
+    <meta property="og:title" content="MAD DevOps | MADSuite & solutions web, mobile et automatisation" />
+    <meta
+      property="og:description"
+      content="MADSuite centralise clients, projets, temps, facturation et rapports pour les travailleurs autonomes et petites équipes. MAD DevOps conçoit aussi des sites, applications et automatisations sur mesure."
+    />
+    <meta property="og:image" content="https://maddevops.com/img/og-image.png" />
+    <meta property="og:locale" content="fr_CA" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MAD DevOps | MADSuite & solutions web, mobile et automatisation" />
+    <meta
+      name="twitter:description"
+      content="MADSuite centralise clients, projets, temps, facturation et rapports. MAD DevOps conçoit aussi des solutions web, mobile et automatisation sur mesure."
+    />
+    <meta name="twitter:image" content="https://maddevops.com/img/og-image.png" />
+
+    <link rel="icon" href="./img/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="./img/favicon-16.png" sizes="16x16" type="image/png" />
+    <link rel="icon" href="./img/favicon-48.png" sizes="48x48" type="image/png" />
+    <link rel="apple-touch-icon" href="./img/favicon-180.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -87,13 +108,22 @@
       .brand {
         display: inline-flex;
         align-items: center;
+        gap: 0.65rem;
         text-decoration: none;
       }
 
       .brand img {
-        height: 76px;
+        height: 48px;
         width: auto;
         display: block;
+      }
+
+      .brand .wordmark {
+        font-weight: 800;
+        font-size: 1.3rem;
+        letter-spacing: -0.02em;
+        color: var(--text);
+        line-height: 1.1;
       }
 
       .nav-links {
@@ -103,14 +133,14 @@
         align-items: center;
       }
 
-      .nav-links a {
+      .nav-links a:not(.btn) {
         color: var(--muted);
         text-decoration: none;
         font-weight: 600;
         font-size: 0.95rem;
       }
 
-      .nav-links a:hover {
+      .nav-links a:not(.btn):hover {
         color: var(--white);
       }
 
@@ -201,6 +231,12 @@
       .btn-secondary:hover {
         border-color: rgba(255, 255, 255, 0.28);
         background: rgba(255, 255, 255, 0.08);
+      }
+
+      .btn-small {
+        min-height: 38px;
+        padding: 0.55rem 1.1rem;
+        font-size: 0.85rem;
       }
 
       .hero-panel {
@@ -299,6 +335,114 @@
         border-radius: 16px;
         padding: 0.95rem 1rem;
         color: var(--muted);
+      }
+
+      .trust-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+      }
+
+      .trust-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.5rem 0.95rem;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        font-size: 0.85rem;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .plans {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2.25rem;
+      }
+
+      .plan-card {
+        position: relative;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .plan-card.featured {
+        border-color: rgba(42, 157, 143, 0.6);
+        box-shadow: 0 20px 45px rgba(42, 157, 143, 0.16);
+      }
+
+      .plan-badge {
+        position: absolute;
+        top: -14px;
+        right: 1.5rem;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        color: var(--white);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        padding: 0.35rem 0.8rem;
+        border-radius: 999px;
+      }
+
+      .plan-name {
+        font-size: 1.35rem;
+        font-weight: 800;
+      }
+
+      .plan-audience {
+        color: var(--muted-soft);
+        font-size: 0.95rem;
+        margin-top: -0.5rem;
+      }
+
+      .plan-modules {
+        list-style: none;
+        display: grid;
+        gap: 0.55rem;
+      }
+
+      .plan-modules li {
+        color: var(--muted);
+        font-size: 0.92rem;
+        display: flex;
+        gap: 0.55rem;
+      }
+
+      .plan-modules li::before {
+        content: "✓";
+        color: var(--secondary);
+        font-weight: 800;
+      }
+
+      .plan-note {
+        margin-top: auto;
+        padding-top: 0.9rem;
+        border-top: 1px solid var(--border);
+        color: var(--muted-soft);
+        font-size: 0.85rem;
+      }
+
+      .section-cta {
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+      }
+
+      .section-cta p {
+        color: var(--muted-soft);
+        font-size: 0.92rem;
+        max-width: 420px;
       }
 
       .examples-grid {
@@ -414,7 +558,7 @@
         }
 
         .brand img {
-          height: 64px;
+          height: 40px;
         }
       }
 
@@ -453,15 +597,17 @@
     <header class="site-header container">
       <nav class="nav" aria-label="Navigation principale">
         <a class="brand" href="/" aria-label="MAD DevOps — Accueil">
-          <img src="./img/logo.png" alt="MAD DevOps" />
+          <img src="./img/brand-icon.png" alt="" width="48" height="48" />
+          <span class="wordmark">MAD DevOps</span>
         </a>
 
         <div class="nav-links">
+          <a href="#madsuite">MADSuite</a>
           <a href="#services">Services</a>
-          <a href="#exemples">Exemples</a>
           <a href="#approche">Approche</a>
-          <a href="#projet">Projet</a>
+          <a href="#projet">Projets</a>
           <a href="#contact">Contact</a>
+          <a href="mailto:contact@maddevops.com" class="btn btn-primary btn-small">Demander une démo</a>
         </div>
       </nav>
     </header>
@@ -470,21 +616,22 @@
       <section class="hero container" aria-labelledby="hero-title">
         <div class="hero-grid">
           <div>
-            <div class="badge">Web • Mobile • Automatisation • Outils internes</div>
+            <div class="badge">Éditeur de logiciels • Studio web, mobile & automatisation</div>
 
             <h1 id="hero-title">
-              Des sites Web, applications et automatisations qui
-              <span class="gradient">simplifient votre travail.</span>
+              MADSuite et des solutions sur mesure qui
+              <span class="gradient">simplifient votre gestion.</span>
             </h1>
 
             <p class="hero-text">
-              MAD DevOps aide les travailleurs autonomes, PME et petites organisations à transformer les tâches répétitives, les fichiers dispersés
-              et les processus flous en outils numériques simples, utiles et adaptés à leur réalité.
+              MAD DevOps conçoit <strong>MADSuite</strong>, une plateforme tout-en-un qui centralise vos clients, vos projets, votre temps et
+              votre facturation, et développe des sites, applications et automatisations sur mesure pour les travailleurs autonomes, PME et
+              petites organisations qui veulent moderniser leurs processus.
             </p>
 
             <div class="hero-actions">
-              <a href="mailto:contact@maddevops.com" class="btn btn-primary">Parler de votre besoin</a>
-              <a href="#services" class="btn btn-secondary">Voir les façons de commencer</a>
+              <a href="#madsuite" class="btn btn-primary">Découvrir MADSuite</a>
+              <a href="mailto:contact@maddevops.com" class="btn btn-secondary">Discuter d’un projet sur mesure</a>
             </div>
           </div>
 
@@ -492,8 +639,8 @@
             <h2>Vous reconnaissez ça ?</h2>
             <ul>
               <li>Trop de fichiers Excel.</li>
-              <li>Trop de copier-coller.</li>
-              <li>Des suivis clients dispersés.</li>
+              <li>Des suivis clients, projets et factures dispersés.</li>
+              <li>Trop de copier-coller entre vos outils.</li>
               <li>Une idée d’application encore floue.</li>
               <li>Un processus clair dans votre tête, mais pas encore dans un outil.</li>
             </ul>
@@ -520,12 +667,132 @@
         </ul>
       </section>
 
+      <section class="container" id="madsuite" aria-labelledby="madsuite-title">
+        <div class="section-heading">
+          <p class="section-kicker">Notre produit</p>
+          <h2 id="madsuite-title">MADSuite, la plateforme qui centralise la gestion de votre entreprise</h2>
+          <p class="section-text">
+            Du devis au paiement, MADSuite réunit vos clients, vos projets, votre temps, votre facturation, votre comptabilité et vos rapports
+            dans une seule plateforme sécurisée, pensée pour les travailleurs autonomes, les consultants et les petites équipes.
+          </p>
+        </div>
+
+        <div class="trust-row" aria-label="Garanties de sécurité">
+          <span class="trust-pill">🔐 Isolation des données par organisation</span>
+          <span class="trust-pill">🛡️ Permissions vérifiées côté serveur</span>
+          <span class="trust-pill">🇨🇦 Conçu et opéré au Canada</span>
+        </div>
+
+        <div class="grid" style="margin-top: 2.25rem" aria-label="Fonctionnalités de MADSuite">
+          <article class="card">
+            <h3>👥 Clients</h3>
+            <p>Centralisez vos contacts, vos historiques et vos suivis clients au même endroit.</p>
+          </article>
+
+          <article class="card">
+            <h3>📁 Projets</h3>
+            <p>Suivez l’avancement, les budgets et les taux horaires de chaque projet.</p>
+          </article>
+
+          <article class="card">
+            <h3>⏱️ Temps & présence</h3>
+            <p>Minuteur intégré, feuilles de temps et kiosque de pointage pour les équipes terrain.</p>
+          </article>
+
+          <article class="card">
+            <h3>🧾 Facturation & soumissions</h3>
+            <p>Créez des soumissions, facturez et numérotez automatiquement, avec export PDF.</p>
+          </article>
+
+          <article class="card">
+            <h3>💳 Paiements</h3>
+            <p>Suivez les paiements reçus et offrez un portail client sécurisé pour consulter et régler une facture.</p>
+          </article>
+
+          <article class="card">
+            <h3>📊 Rapports</h3>
+            <p>Rapports mensuels et trimestriels, exports CSV/PDF et tableaux de bord à jour.</p>
+          </article>
+
+          <article class="card">
+            <h3>🧮 Comptabilité</h3>
+            <p>Écritures, grand livre, balances et clôtures pour garder une vue claire de vos finances.</p>
+          </article>
+
+          <article class="card">
+            <h3>🔐 Sécurité multi-organisation</h3>
+            <p>Isolation stricte des données par organisation et permissions vérifiées côté serveur, pas seulement dans l’interface.</p>
+          </article>
+
+          <article class="card">
+            <h3>🖥️ Agent de bureau</h3>
+            <p>Suivi d’activité optionnel pour les équipes qui veulent documenter leur travail.</p>
+          </article>
+        </div>
+
+        <div class="section-heading" style="margin-top: 3.5rem">
+          <p class="section-kicker">Paliers</p>
+          <h2 style="font-size: clamp(1.6rem, 3vw, 2.4rem)">Un palier pour chaque étape de votre entreprise</h2>
+          <p class="section-text">
+            Les modules disponibles augmentent avec le palier. La tarification est communiquée directement selon vos besoins.
+          </p>
+        </div>
+
+        <div class="plans">
+          <article class="plan-card">
+            <p class="plan-name">Free</p>
+            <p class="plan-audience">Pour découvrir MADSuite</p>
+            <ul class="plan-modules">
+              <li>Tableau de bord</li>
+              <li>Clients</li>
+              <li>Projets</li>
+              <li>Feuille de temps</li>
+              <li>Suivi du temps</li>
+            </ul>
+            <p class="plan-note">Essai de 14 jours inclus pour tester les paliers payants.</p>
+          </article>
+
+          <article class="plan-card featured">
+            <span class="plan-badge">Le plus populaire</span>
+            <p class="plan-name">Pro</p>
+            <p class="plan-audience">Pour les travailleurs autonomes et petites équipes actives</p>
+            <ul class="plan-modules">
+              <li>Tout le palier Free</li>
+              <li>Facturation</li>
+              <li>Rapports</li>
+              <li>Kiosque de pointage</li>
+            </ul>
+            <p class="plan-note">Tarification communiquée sur demande.</p>
+          </article>
+
+          <article class="plan-card">
+            <p class="plan-name">Enterprise</p>
+            <p class="plan-audience">Pour les équipes qui veulent tout centraliser</p>
+            <ul class="plan-modules">
+              <li>Tout le palier Pro</li>
+              <li>Soumissions & devis</li>
+              <li>Paiements</li>
+              <li>Dépenses & calcul de kilométrage</li>
+              <li>Intelligence d’activité</li>
+              <li>Assistant de facturation</li>
+            </ul>
+            <p class="plan-note">Tarification communiquée sur demande.</p>
+          </article>
+        </div>
+
+        <div class="section-cta">
+          <a href="mailto:contact@maddevops.com?subject=D%C3%A9mo%20MADSuite" class="btn btn-primary">Demander une démo</a>
+          <p>Dites-nous où vous en êtes : on vous propose le palier le plus adapté et la tarification qui va avec.</p>
+        </div>
+      </section>
+
       <section class="container" id="services" aria-labelledby="services-title">
         <div class="section-heading">
-          <p class="section-kicker">Services</p>
-          <h2 id="services-title">Ce que je peux vous aider à créer</h2>
+          <p class="section-kicker">Développement sur mesure</p>
+          <h2 id="services-title">Ce que je peux aussi vous aider à créer</h2>
           <p class="section-text">
-            Pas besoin de parler “tech”. On part de votre réalité, puis on construit une solution claire, utile et adaptée.
+            En plus de MADSuite, MAD DevOps conçoit des solutions sur mesure quand un besoin sort du cadre standard. Pas besoin de parler
+            “tech” : on part de votre réalité, puis on construit une solution claire, utile et adaptée.
           </p>
         </div>
 
@@ -573,7 +840,7 @@
             <h4>Problèmes fréquents</h4>
             <p>Suivis clients dispersés, soumissions répétitives, factures manuelles, site Web dépassé.</p>
             <h4>Solutions possibles</h4>
-            <p>Tableau de suivi, soumission automatisée, portail client, site clair, rappels simples.</p>
+            <p>MADSuite pour centraliser clients, temps et facturation, ou un site clair et un portail client sur mesure.</p>
           </article>
 
           <article class="example-card">
@@ -665,14 +932,15 @@
       <section class="container" id="contact" aria-labelledby="contact-title">
         <div class="contact-box">
           <p class="section-kicker">Contact</p>
-          <h2 id="contact-title">Prêt à clarifier votre projet ?</h2>
+          <h2 id="contact-title">Prêt à en discuter ?</h2>
           <p class="section-text">
-            Décrivez brièvement ce que vous aimeriez améliorer, simplifier ou automatiser. Pas besoin de termes techniques.
+            Vous voulez une démo de MADSuite ou vous avez un projet sur mesure en tête ? Décrivez brièvement ce que vous aimeriez améliorer,
+            simplifier ou automatiser. Pas besoin de termes techniques.
           </p>
 
           <div class="hero-actions">
-            <a href="mailto:contact@maddevops.com" class="btn btn-primary">Parler de votre besoin</a>
-            <a href="https://github.com/bleeband" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Voir mes projets</a>
+            <a href="mailto:contact@maddevops.com?subject=D%C3%A9mo%20MADSuite" class="btn btn-primary">Demander une démo MADSuite</a>
+            <a href="mailto:contact@maddevops.com?subject=Projet%20sur%20mesure" class="btn btn-secondary">Parler d’un projet sur mesure</a>
           </div>
         </div>
       </section>
@@ -681,7 +949,7 @@
     <footer>
       © 2026 MAD DevOps ·
       <a href="mailto:contact@maddevops.com">Marc-André Dufour</a><br />
-      Web • Mobile • Automatisation • Outils numériques simples
+      MADSuite • Web • Mobile • Automatisation
     </footer>
   </body>
 </html>
