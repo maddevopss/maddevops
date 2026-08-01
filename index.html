@@ -8,7 +8,7 @@
 
     <meta
       name="description"
-      content="MAD DevOps aide les travailleurs autonomes, PME et petites organisations à créer des sites Web, applications et automatisations simples pour réduire les tâches répétitives et clarifier leurs processus."
+      content="MAD DevOps aide les travailleurs autonomes, PME et petites organisations à créer des sites Web, applications et automatisations simples. Créateurs de MADSuite, la plateforme de gestion clients, projets, temps et facturation."
     />
 
     <link rel="icon" href="./img/logo.png" type="image/x-icon" />
@@ -285,6 +285,94 @@
         color: var(--muted-soft);
       }
 
+      .card .card-icon {
+        font-size: 1.4rem;
+      }
+
+      .subsection-label {
+        color: var(--secondary);
+        font-weight: 800;
+        font-size: 0.95rem;
+        margin: 2.5rem 0 1rem;
+      }
+
+      .roadmap-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        list-style: none;
+      }
+
+      .roadmap-list li {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.55rem 1rem;
+        border: 1px dashed var(--border);
+        border-radius: 999px;
+        color: var(--muted-soft);
+        font-size: 0.92rem;
+      }
+
+      .roadmap-list li::before {
+        content: "→";
+        color: var(--secondary);
+        font-weight: 800;
+      }
+
+      .plan-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .plan-card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+      }
+
+      .plan-card--highlight {
+        border-color: var(--secondary);
+        box-shadow: 0 0 0 1px var(--secondary);
+      }
+
+      .plan-tag {
+        display: inline-flex;
+        width: fit-content;
+        padding: 0.3rem 0.8rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--white);
+        font-weight: 800;
+        font-size: 0.85rem;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+      }
+
+      .plan-card--highlight .plan-tag {
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+      }
+
+      .plan-list {
+        list-style: none;
+        display: grid;
+        gap: 0.55rem;
+      }
+
+      .plan-list li {
+        color: var(--muted);
+        display: flex;
+        gap: 0.6rem;
+        font-size: 0.96rem;
+      }
+
+      .plan-list li::before {
+        content: "✓";
+        color: var(--secondary);
+        font-weight: 800;
+      }
+
       .problem-list {
         display: grid;
         gap: 0.85rem;
@@ -458,6 +546,7 @@
 
         <div class="nav-links">
           <a href="#services">Services</a>
+          <a href="#madsuite">MADSuite</a>
           <a href="#exemples">Exemples</a>
           <a href="#approche">Approche</a>
           <a href="#projet">Projet</a>
@@ -470,7 +559,7 @@
       <section class="hero container" aria-labelledby="hero-title">
         <div class="hero-grid">
           <div>
-            <div class="badge">Web • Mobile • Automatisation • Outils internes</div>
+            <div class="badge">Web • Mobile • Automatisation • MADSuite</div>
 
             <h1 id="hero-title">
               Des sites Web, applications et automatisations qui
@@ -479,12 +568,13 @@
 
             <p class="hero-text">
               MAD DevOps aide les travailleurs autonomes, PME et petites organisations à transformer les tâches répétitives, les fichiers dispersés
-              et les processus flous en outils numériques simples, utiles et adaptés à leur réalité.
+              et les processus flous en outils numériques simples, utiles et adaptés à leur réalité. C’est aussi l’équipe derrière
+              <a href="#madsuite" style="color: var(--white); text-decoration: underline;">MADSuite</a>, notre plateforme de gestion prête à l’emploi.
             </p>
 
             <div class="hero-actions">
               <a href="mailto:contact@maddevops.com" class="btn btn-primary">Parler de votre besoin</a>
-              <a href="#services" class="btn btn-secondary">Voir les façons de commencer</a>
+              <a href="#madsuite" class="btn btn-secondary">Découvrir MADSuite</a>
             </div>
           </div>
 
@@ -554,6 +644,106 @@
             <h3>📊 Outils internes</h3>
             <p>Tableaux de bord, portails, formulaires, rapports, suivis ou petites plateformes métier adaptées à votre façon de travailler.</p>
           </article>
+        </div>
+      </section>
+
+      <section class="container" id="madsuite" aria-labelledby="madsuite-title">
+        <div class="section-heading">
+          <p class="section-kicker">Notre produit</p>
+          <h2 id="madsuite-title">MADSuite, la plateforme de gestion pour PME et travailleurs autonomes</h2>
+          <p class="section-text">
+            MADSuite n’est pas un simple logiciel de suivi du temps : c’est une plateforme qui centralise vos clients, vos projets, votre temps
+            et votre facturation dans un seul endroit clair. Pensée pour les entrepreneurs en construction, rénovation et paysagement, les
+            consultants (TI, marketing, design) et les travailleurs autonomes de services professionnels.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h3><span class="card-icon">👥</span> Clients</h3>
+            <p>Un espace centralisé pour vos clients et leur historique, sans fichiers Excel dispersés.</p>
+          </article>
+
+          <article class="card">
+            <h3><span class="card-icon">📁</span> Projets</h3>
+            <p>Budgets, taux horaire et statuts suivis pour chaque mandat, du début à la fin.</p>
+          </article>
+
+          <article class="card">
+            <h3><span class="card-icon">⏱️</span> Temps</h3>
+            <p>Minuteur intégré et feuilles de temps prêtes à être transformées en facture.</p>
+          </article>
+
+          <article class="card">
+            <h3><span class="card-icon">🧾</span> Facturation</h3>
+            <p>Création, numérotation automatique et export PDF de vos factures en quelques minutes.</p>
+          </article>
+
+          <article class="card">
+            <h3><span class="card-icon">📊</span> Rapports</h3>
+            <p>Rapports mensuels et trimestriels exportables en CSV ou PDF pour garder une vue d’ensemble.</p>
+          </article>
+
+          <article class="card">
+            <h3><span class="card-icon">🔐</span> Multi-organisation</h3>
+            <p>Données isolées et sécurisées par organisation, pour une ou plusieurs équipes.</p>
+          </article>
+
+          <article class="card">
+            <h3><span class="card-icon">🖥️</span> Agent de suivi</h3>
+            <p>Une application de bureau qui capture l’activité pour alimenter vos rapports automatiquement.</p>
+          </article>
+
+          <article class="card">
+            <h3><span class="card-icon">🤖</span> Assistant intelligent</h3>
+            <p>Des suggestions de facturation et d’intelligence d’activité, en amélioration continue.</p>
+          </article>
+        </div>
+
+        <p class="subsection-label">Bientôt disponible</p>
+        <ul class="roadmap-list">
+          <li>Soumissions et estimés</li>
+          <li>Paiements en ligne</li>
+          <li>Pointeuse mobile et calcul de kilométrage</li>
+          <li>PDF professionnels avancés</li>
+        </ul>
+
+        <p class="subsection-label">Des forfaits adaptés à votre réalité</p>
+        <div class="plan-grid">
+          <article class="card plan-card">
+            <span class="plan-tag">Gratuit</span>
+            <h3>Pour démarrer</h3>
+            <ul class="plan-list">
+              <li>Tableau de bord et clients</li>
+              <li>Projets et suivi du temps</li>
+              <li>Essai complet, sans carte requise</li>
+            </ul>
+          </article>
+
+          <article class="card plan-card plan-card--highlight">
+            <span class="plan-tag">Pro</span>
+            <h3>Pour les indépendants en croissance</h3>
+            <ul class="plan-list">
+              <li>Facturation illimitée</li>
+              <li>Rapports détaillés</li>
+              <li>Pointeuse d’équipe (kiosque)</li>
+            </ul>
+          </article>
+
+          <article class="card plan-card">
+            <span class="plan-tag">Entreprise</span>
+            <h3>Pour les équipes</h3>
+            <ul class="plan-list">
+              <li>Multi-utilisateurs</li>
+              <li>Modules avancés (km, dépenses, paiements)</li>
+              <li>Assistant intelligent</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="hero-actions" style="margin-top: 2rem;">
+          <a href="https://madsuite.ca" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Découvrir MADSuite</a>
+          <a href="mailto:contact@maddevops.com" class="btn btn-secondary">Parler à un conseiller</a>
         </div>
       </section>
 
@@ -681,7 +871,7 @@
     <footer>
       © 2026 MAD DevOps ·
       <a href="mailto:contact@maddevops.com">Marc-André Dufour</a><br />
-      Web • Mobile • Automatisation • Outils numériques simples
+      Web • Mobile • Automatisation · Créateurs de <a href="#madsuite">MADSuite</a>
     </footer>
   </body>
 </html>
