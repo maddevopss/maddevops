@@ -47,7 +47,10 @@ function initCTATracking() {
 }
 
 function initContactPageTracking() {
-  if (window.location.pathname === "/contact.html" || window.location.pathname.endsWith("contact.html")) {
+  if (
+    window.location.pathname === "/contact.html" ||
+    window.location.pathname.endsWith("contact.html")
+  ) {
     trackEvent("contact_page_viewed");
   }
 }
