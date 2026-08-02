@@ -202,11 +202,7 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
-a:focus-visible,
-.btn:focus-visible {
-  outline: 3px solid var(--secondary);
-  outline-offset: 4px;
-}
+
 @media (max-width: 860px) {
   .hero-grid {
     grid-template-columns: 1fr;
