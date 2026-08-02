@@ -32,45 +32,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./assets/css/variables.css" />
+    <link rel="stylesheet" href="./assets/css/base.css" />
     <style>
-      :root {
-        --bg: #0f172a;
-        --card: rgba(30, 41, 59, 0.72);
-        --border: rgba(255, 255, 255, 0.12);
-        --primary: #2b6cc4;
-        --secondary: #2a9d8f;
-        --text: #f8fafc;
-        --muted: #cbd5e1;
-        --muted-soft: #94a3b8;
-        --white: #fff;
-        --radius: 22px;
-        --max-width: 1160px;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background:
-          radial-gradient(circle at top left, rgba(43, 108, 196, 0.42) 0%, transparent 34%),
-          radial-gradient(circle at bottom right, rgba(42, 157, 143, 0.32) 0%, transparent 28%),
-          var(--bg);
-        color: var(--text);
-        min-height: 100vh;
-        line-height: 1.6;
-      }
-
-      a {
-        color: inherit;
-      }
+      
 
       .skip-link {
         position: absolute;
@@ -404,17 +369,7 @@
         }
       }
 
-      @media (prefers-reduced-motion: reduce) {
-        *,
-        *::before,
-        *::after {
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-          scroll-behavior: auto !important;
-          transition-duration: 0.01ms !important;
-        }
-      }
-    </style>
+      </style>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Aller au contenu principal</a>
