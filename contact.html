@@ -16,7 +16,10 @@
       content="Un formulaire simple pour parler d'un site web, d'une application, d'une automatisation ou d'un projet MADSuite."
     />
     <meta property="og:url" content="https://www.maddevops.com/contact.html" />
-    <meta property="og:image" content="https://www.maddevops.com/img/logo.png" />
+    <meta
+      property="og:image"
+      content="https://www.maddevops.com/img/logo.png"
+    />
     <meta property="og:locale" content="fr_CA" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Contact | MAD DevOps" />
@@ -24,7 +27,10 @@
       name="twitter:description"
       content="Un formulaire simple pour parler d'un projet numérique sans jargon inutile."
     />
-    <meta name="twitter:image" content="https://www.maddevops.com/img/logo.png" />
+    <meta
+      name="twitter:image"
+      content="https://www.maddevops.com/img/logo.png"
+    />
     <link rel="icon" href="./img/logo.png" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,73 +40,9 @@
     />
     <link rel="stylesheet" href="./assets/css/variables.css" />
     <link rel="stylesheet" href="./assets/css/base.css" />
+    <link rel="stylesheet" href="./assets/css/layout.css" />
+    <link rel="stylesheet" href="./assets/css/components.css" />
     <style>
-      
-
-      .skip-link {
-        position: absolute;
-        left: 1rem;
-        top: 1rem;
-        transform: translateY(-160%);
-        background: var(--white);
-        color: var(--bg);
-        padding: 0.75rem 1rem;
-        border-radius: 999px;
-        font-weight: 800;
-        text-decoration: none;
-        z-index: 1000;
-      }
-
-      .skip-link:focus {
-        transform: translateY(0);
-      }
-
-      .container {
-        width: min(var(--max-width), 90%);
-        margin: 0 auto;
-      }
-
-      .site-header {
-        padding: 1.35rem 0;
-      }
-
-      .nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1.5rem;
-      }
-
-      .brand {
-        display: inline-flex;
-        align-items: center;
-        text-decoration: none;
-      }
-
-      .brand img {
-        height: 70px;
-        width: auto;
-        display: block;
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 1.15rem;
-        flex-wrap: wrap;
-        align-items: center;
-      }
-
-      .nav-links a {
-        color: var(--muted);
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 0.94rem;
-      }
-
-      .nav-links a:hover {
-        color: var(--white);
-      }
-
       .hero {
         padding: 3.5rem 0 2.25rem;
       }
@@ -110,19 +52,6 @@
         grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
         gap: 2rem;
         align-items: start;
-      }
-
-      .badge {
-        display: inline-flex;
-        width: fit-content;
-        padding: 0.5rem 1rem;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 999px;
-        margin-bottom: 1.25rem;
-        color: var(--muted);
-        background: rgba(255, 255, 255, 0.05);
-        font-weight: 800;
-        font-size: 0.92rem;
       }
 
       h1 {
@@ -260,39 +189,6 @@
         margin-top: 1.25rem;
       }
 
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        border: 0;
-        border-radius: 14px;
-        padding: 0.95rem 1.2rem;
-        font-weight: 800;
-        text-decoration: none;
-        cursor: pointer;
-        transition:
-          transform 0.2s ease,
-          box-shadow 0.2s ease,
-          opacity 0.2s ease;
-      }
-
-      .btn:hover {
-        transform: translateY(-1px);
-      }
-
-      .btn-primary {
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        color: var(--white);
-        box-shadow: 0 14px 28px rgba(43, 108, 196, 0.24);
-      }
-
-      .btn-secondary {
-        background: transparent;
-        color: var(--text);
-        border: 1px solid var(--border);
-      }
-
       .contact-note {
         margin-top: 1rem;
         color: var(--muted-soft);
@@ -347,18 +243,9 @@
         .form-grid {
           grid-template-columns: 1fr;
         }
-
-        .nav {
-          align-items: flex-start;
-          flex-direction: column;
-        }
       }
 
       @media (max-width: 640px) {
-        .container {
-          width: min(var(--max-width), 92%);
-        }
-
         .hero {
           padding-top: 2.4rem;
         }
@@ -368,15 +255,16 @@
           padding: 1.1rem;
         }
       }
-
-      </style>
+    </style>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Aller au contenu principal</a>
 
     <header class="site-header container">
       <nav class="nav" aria-label="Navigation principale">
-        <a class="brand" href="./index.html" aria-label="MAD DevOps — Accueil"><img src="./img/logo.png" alt="MAD DevOps" /></a>
+        <a class="brand" href="./index.html" aria-label="MAD DevOps — Accueil"
+          ><img src="./img/logo.png" alt="MAD DevOps"
+        /></a>
         <div class="nav-links">
           <a href="./index.html#services">Services</a>
           <a href="./index.html#madsuite">MADSuite</a>
@@ -392,30 +280,54 @@
         <div class="hero-grid">
           <div>
             <div class="badge">Contact • Consultation • Projet</div>
-            <h1 id="contact-hero-title">Parlez-moi de votre besoin, simplement.</h1>
+            <h1 id="contact-hero-title">
+              Parlez-moi de votre besoin, simplement.
+            </h1>
             <p class="hero-text">
-              Décrivez ce que vous voulez clarifier, simplifier ou construire. Une idée floue, un irritant récurrent ou un projet déjà amorcé suffit pour commencer.
+              Décrivez ce que vous voulez clarifier, simplifier ou construire.
+              Une idée floue, un irritant récurrent ou un projet déjà amorcé
+              suffit pour commencer.
             </p>
           </div>
           <aside class="card" aria-label="Ce que vous pouvez m'envoyer">
             <h2>Ce que je peux regarder avec vous</h2>
             <ul class="info-list">
-              <li><strong>Site web</strong> pour présenter clairement votre offre.</li>
-              <li><strong>Application web</strong> pour gérer un besoin précis.</li>
-              <li><strong>Application mobile</strong> pour un usage simple sur le terrain.</li>
-              <li><strong>Automatisation</strong> pour réduire le travail répétitif.</li>
-              <li><strong>MADSuite</strong> pour le flux d'inscription ou un besoin lié au produit.</li>
+              <li>
+                <strong>Site web</strong> pour présenter clairement votre offre.
+              </li>
+              <li>
+                <strong>Application web</strong> pour gérer un besoin précis.
+              </li>
+              <li>
+                <strong>Application mobile</strong> pour un usage simple sur le
+                terrain.
+              </li>
+              <li>
+                <strong>Automatisation</strong> pour réduire le travail
+                répétitif.
+              </li>
+              <li>
+                <strong>MADSuite</strong> pour le flux d'inscription ou un
+                besoin lié au produit.
+              </li>
             </ul>
           </aside>
         </div>
       </section>
 
-      <section class="section-block container" aria-labelledby="contact-form-title">
+      <section
+        class="section-block container"
+        aria-labelledby="contact-form-title"
+      >
         <div class="section-heading">
           <p class="section-kicker">Formulaire minimal</p>
-          <h2 id="contact-form-title">Envoyez une demande claire, sans remplir un gros formulaire.</h2>
+          <h2 id="contact-form-title">
+            Envoyez une demande claire, sans remplir un gros formulaire.
+          </h2>
           <p class="section-text">
-            Ce formulaire sert à cadrer la prochaine conversation. Si votre besoin concerne MADSuite, vous pouvez aussi le préciser ici sans changer le reste du processus.
+            Ce formulaire sert à cadrer la prochaine conversation. Si votre
+            besoin concerne MADSuite, vous pouvez aussi le préciser ici sans
+            changer le reste du processus.
           </p>
         </div>
 
@@ -423,22 +335,44 @@
           <div class="card">
             <h3>Comment ça fonctionne</h3>
             <ul class="info-list">
-              <li><strong>Vous décrivez</strong> votre besoin en quelques lignes.</li>
-              <li><strong>Je relis</strong> votre contexte et votre priorité.</li>
-              <li><strong>Je réponds</strong> avec la prochaine étape la plus simple.</li>
+              <li>
+                <strong>Vous décrivez</strong> votre besoin en quelques lignes.
+              </li>
+              <li>
+                <strong>Je relis</strong> votre contexte et votre priorité.
+              </li>
+              <li>
+                <strong>Je réponds</strong> avec la prochaine étape la plus
+                simple.
+              </li>
             </ul>
-            <p class="contact-note">Réponse humaine. Aucun outil externe n'est nécessaire pour envoyer cette demande.</p>
+            <p class="contact-note">
+              Réponse humaine. Aucun outil externe n'est nécessaire pour envoyer
+              cette demande.
+            </p>
           </div>
 
           <form class="form-card" id="contact-form" novalidate>
             <div class="form-grid">
               <div class="field">
                 <label for="name">Nom</label>
-                <input id="name" name="name" type="text" autocomplete="name" required />
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  autocomplete="name"
+                  required
+                />
               </div>
               <div class="field">
                 <label for="email">Courriel</label>
-                <input id="email" name="email" type="email" autocomplete="email" required />
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                />
               </div>
               <div class="field full">
                 <label for="need">Type de besoin</label>
@@ -455,31 +389,55 @@
               </div>
               <div class="field full">
                 <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Décrivez le besoin, le contexte ou le problème à résoudre" required></textarea>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Décrivez le besoin, le contexte ou le problème à résoudre"
+                  required
+                ></textarea>
               </div>
               <div class="field">
                 <label for="budget">Budget approximatif (optionnel)</label>
-                <input id="budget" name="budget" type="text" placeholder="Ex. 2 000 $ à 5 000 $" />
+                <input
+                  id="budget"
+                  name="budget"
+                  type="text"
+                  placeholder="Ex. 2 000 $ à 5 000 $"
+                />
               </div>
               <div class="field">
                 <label for="delay">Délai souhaité (optionnel)</label>
-                <input id="delay" name="delay" type="text" placeholder="Ex. Ce trimestre, le mois prochain" />
+                <input
+                  id="delay"
+                  name="delay"
+                  type="text"
+                  placeholder="Ex. Ce trimestre, le mois prochain"
+                />
               </div>
             </div>
 
             <div class="form-actions">
-              <button class="btn btn-primary" type="submit">Envoyer ma demande</button>
-              <a class="btn btn-secondary" href="mailto:contact@maddevops.com">Écrire par courriel</a>
+              <button class="btn btn-primary" type="submit">
+                Envoyer ma demande
+              </button>
+              <a class="btn btn-secondary" href="mailto:contact@maddevops.com"
+                >Écrire par courriel</a
+              >
             </div>
             <p class="contact-note">
-              Le bouton ouvre votre courriel avec un message prérempli. Si vous préférez, vous pouvez aussi m'écrire directement à contact@maddevops.com.
+              Le bouton ouvre votre courriel avec un message prérempli. Si vous
+              préférez, vous pouvez aussi m'écrire directement à
+              contact@maddevops.com.
             </p>
           </form>
         </div>
       </section>
     </main>
 
-    <p class="footer-note">MAD DevOps garde MADSuite sur son flux existant. Cette page sert seulement de porte d'entrée contact et consultation.</p>
+    <p class="footer-note">
+      MAD DevOps garde MADSuite sur son flux existant. Cette page sert seulement
+      de porte d'entrée contact et consultation.
+    </p>
 
     <script src="./tracking.js"></script>
     <script>
@@ -494,7 +452,9 @@
       }
 
       function showSuccessMessage(mailtoHref) {
-        const existingMessage = document.getElementById("contact-success-message");
+        const existingMessage = document.getElementById(
+          "contact-success-message",
+        );
         if (existingMessage) {
           existingMessage.remove();
         }
@@ -506,9 +466,17 @@
         successMessage.setAttribute("aria-live", "polite");
 
         appendText(successMessage, "h3", "✓ Merci pour votre demande!");
-        appendText(successMessage, "p", "Votre message est prêt à être envoyé à contact@maddevops.com. Vous recevrez une réponse dans les 24 heures.");
+        appendText(
+          successMessage,
+          "p",
+          "Votre message est prêt à être envoyé à contact@maddevops.com. Vous recevrez une réponse dans les 24 heures.",
+        );
 
-        const fallback = appendText(successMessage, "p", "Si le client email ne s'ouvre pas, vous pouvez aussi ");
+        const fallback = appendText(
+          successMessage,
+          "p",
+          "Si le client email ne s'ouvre pas, vous pouvez aussi ",
+        );
         const fallbackLink = document.createElement("a");
         fallbackLink.href = mailtoHref;
         fallbackLink.textContent = "cliquer ici";
@@ -546,7 +514,9 @@
           lines.push(`Délai souhaité: ${delay}`);
         }
 
-        const subject = encodeURIComponent(`Demande de consultation MAD DevOps - ${data.get("need")}`);
+        const subject = encodeURIComponent(
+          `Demande de consultation MAD DevOps - ${data.get("need")}`,
+        );
         const body = encodeURIComponent(lines.join("\n\n"));
         const mailtoHref = `mailto:contact@maddevops.com?subject=${subject}&body=${body}`;
 
