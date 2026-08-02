@@ -11,6 +11,9 @@ Ce dépôt contient la page publique de MAD DevOps : services Web, applications,
 ```text
 index.html       Page d’accueil
 contact.html     Page de contact
+assets/
+  css/           Feuilles de style (base, composants, mise en page, pages)
+  js/            Scripts (tracking, formulaire)
 img/             Logos et images
 README.md        Documentation du dépôt
 ```
