@@ -18,6 +18,7 @@ h1 {
 .gradient {
   background: linear-gradient(90deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .hero-text {
@@ -232,4 +233,9 @@ a:focus-visible,
 .btn-madsuite {
   border: 1px solid var(--secondary);
   color: var(--secondary);
+}
+
+.madsuite-actions {
+  margin-top: 2rem;
+  text-align: center;
 }
