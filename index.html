@@ -87,7 +87,8 @@
         <a class="brand" href="/"
           ><img src="./img/logo.png" alt="MAD DevOps — Accueil"
         /></a>
-        <div class="nav-links">
+        <button class="nav-toggle" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Ouvrir le menu" data-nav-toggle>☰</button>
+        <div class="nav-links" id="main-navigation">
           <a href="#pourquoi">Pourquoi</a><a href="#services">Services</a
           ><a href="#forfaits">Forfaits</a><a href="#madsuite">MADSuite</a
           ><a href="#approche">Approche</a><a href="#projet">Projet</a
@@ -532,6 +533,7 @@
       <span aria-hidden="true">↑</span>
     </button>
     <script src="./assets/js/tracking.js" defer></script>
+    <script src="./assets/js/mobile-nav.js" defer></script>
     <script src="./assets/js/back-to-top.js" defer></script>
   </body>
 </html>
