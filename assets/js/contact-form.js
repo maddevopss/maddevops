@@ -1,4 +1,17 @@
 const form = document.getElementById("contact-form");
+const params = new URLSearchParams(window.location.search);
+const needField = document.getElementById("need");
+
+if (params.get("need") === "madsuite" && needField) {
+  needField.value = "MADSuite";
+}
+
+if (params.get("project") === "fines-herbes") {
+  const messageField = document.getElementById("message");
+  if (messageField && !messageField.value) {
+    messageField.value = "Je souhaite obtenir plus d'information sur le projet Au Royaume des Fines Herbes.";
+  }
+}
 const formCard = document.querySelector(".form-card");
 
 function appendText(parent, tagName, text) {
@@ -24,7 +37,7 @@ function showSuccessMessage(mailtoHref) {
   appendText(
     successMessage,
     "p",
-    "Votre message est prêt à être envoyé à contact@maddevops.com. Vous recevrez une réponse dans les 24 heures.",
+    "Votre message est prêt à être envoyé à contact@maddevops.com. Une réponse vous sera transmise dès que possible.",
   );
 
   const fallback = appendText(
