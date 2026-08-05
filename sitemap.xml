@@ -2,10 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.maddevops.com/</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://www.maddevops.com/contact.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-05</lastmod>
+  </url>
+  <url>
+    <loc>https://www.maddevops.com/confidentialite.html</loc>
+    <lastmod>2026-08-05</lastmod>
+  </url>
+  <url>
+    <loc>https://www.maddevops.com/mentions-legales.html</loc>
+    <lastmod>2026-08-05</lastmod>
   </url>
 </urlset>
