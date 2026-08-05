@@ -3,8 +3,12 @@ name: Static site smoke
 on:
   pull_request:
     branches: [main]
+    paths-ignore:
+      - ".github/copilot-instructions.md"
   push:
     branches: [main]
+    paths-ignore:
+      - ".github/copilot-instructions.md"
 
 permissions:
   contents: read
@@ -23,7 +27,8 @@ jobs:
           test -f index.html
           test -f contact.html
           test -f img/logo.png
-          test -f tracking.js
+          test -f assets/js/tracking.js
+          test -f assets/js/contact-form.js
 
       - name: Validate basic HTML metadata
         run: |
@@ -40,17 +45,17 @@ jobs:
 
       - name: Validate privacy-light tracking
         run: |
-          grep -q 'function trackEvent' tracking.js
-          grep -q 'window.dataLayer' tracking.js
-          if grep -q 'cta_text' tracking.js; then
+          grep -q 'function trackEvent' assets/js/tracking.js
+          grep -q 'window.dataLayer' assets/js/tracking.js
+          if grep -q 'cta_text' assets/js/tracking.js; then
             echo 'cta_text should not be tracked'
             exit 1
           fi
 
       - name: Validate contact form safety
         run: |
-          if grep -q 'innerHTML' contact.html; then
-            echo 'contact.html should not use innerHTML'
+          if grep -q 'innerHTML' contact.html assets/js/contact-form.js; then
+            echo 'contact form should not use innerHTML'
             exit 1
           fi
-          grep -q 'aria-live' contact.html
+          grep -q 'aria-live' assets/js/contact-form.js
