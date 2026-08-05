@@ -12,6 +12,23 @@
     <link rel="stylesheet" href="./assets/css/components.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+    <header class="site-header container">
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="brand" href="./index.html"
+          ><img src="./img/logo.png" alt="MAD DevOps — Accueil"
+        /></a>
+        <button class="nav-toggle" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Ouvrir le menu" data-nav-toggle>☰</button>
+        <div class="nav-links" id="main-navigation">
+          <a href="./index.html#services">Services</a>
+          <a href="./index.html#madsuite">MADSuite</a>
+          <a href="./index.html#projet">Projet</a>
+          <a href="./index.html#faq">FAQ</a>
+          <a href="./index.html">Accueil</a>
+        </div>
+      </nav>
+    </header>
+
     <main class="container section-block" id="main-content">
       <p class="section-kicker">MAD DevOps · Projet à réviser</p>
       <h1>Mentions légales</h1>
@@ -71,5 +88,6 @@
       <a href="./confidentialite.html">Confidentialité</a> ·
       <a href="./mentions-legales.html">Mentions légales</a>
     </footer>
+    <script src="./assets/js/mobile-nav.js" defer></script>
   </body>
 </html>
