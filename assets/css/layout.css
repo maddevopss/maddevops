@@ -53,6 +53,39 @@
 .nav-links a:hover {
   color: var(--white);
 }
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem 0.9rem;
+  text-align: center;
+  padding: 2.25rem 1rem;
+  color: var(--muted-soft);
+  border-top: 1px solid var(--border);
+}
+.site-footer br {
+  display: none;
+}
+.site-footer a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.site-footer a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+.site-footer a[href="./confidentialite.html"]::before {
+  content: "·";
+  display: inline-block;
+  margin-right: 0.9rem;
+  color: var(--muted-soft);
+  text-decoration: none;
+}
+
 @media (max-width: 860px) {
   .nav {
     align-items: center;
