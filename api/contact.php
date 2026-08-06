@@ -168,7 +168,7 @@ try {
     smtpSend($host, $port, $username, $password, $fromEmail, $contactEmail, $email, $subject, implode("\n\n", $bodyParts));
 } catch (Throwable $exception) {
     error_log('MAD DevOps contact SMTP: ' . $exception->getMessage());
-    respond(502, ['ok' => false, 'error' => 'L’envoi est temporairement indisponible. Utilisez le courriel de secours.']);
+    respond(502, ['ok' => false, 'error' => 'L'envoi est temporairement indisponible. Utilisez le courriel de secours.']);
 }
 
 respond(200, ['ok' => true, 'message' => 'Votre demande a été envoyée.']);
