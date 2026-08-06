@@ -65,7 +65,8 @@ function showMessage(title, message, mailtoHref = null, isError = false) {
     fallback.append(" ou écrire directement à contact@maddevops.com.");
   }
 
-  formCard.insertBefore(status, form);
+  //formCard.insertBefore(status, form);
+  form.before(status);
   status.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
