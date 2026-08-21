@@ -83,6 +83,9 @@ else
   test -f "$stage_dir/index.html" || fail 'release does not contain index.html'
   test -f "$stage_dir/api/contact.php" || fail 'release does not contain api/contact.php'
   printf '%s\n' "$release_sha" > "$stage_dir/.release-sha"
+  # mktemp creates the staging directory with mode 700. Nginx workers must
+  # be able to traverse release directories and read public site assets.
+  chmod -R a+rX,go-w "$stage_dir"
   mv "$stage_dir" "$release_dir"
 fi
 
