@@ -1,0 +1,63 @@
+name: Rollback production
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_sha:
+        description: SHA Git de la release déjà présente sur le VPS
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: maddevops-production
+  cancel-in-progress: false
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://www.maddevops.com
+    steps:
+      - name: Validate requested release
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "${{ inputs.release_sha }}" =~ ^[0-9a-f]{40}$ ]]
+
+      - name: Configure verified SSH
+        shell: bash
+        env:
+          VPS_DEPLOY_KEY: ${{ secrets.VPS_DEPLOY_KEY }}
+          VPS_KNOWN_HOSTS: ${{ secrets.VPS_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          test -n "$VPS_DEPLOY_KEY"
+          test -n "$VPS_KNOWN_HOSTS"
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$VPS_DEPLOY_KEY" > ~/.ssh/id_ed25519
+          printf '%s\n' "$VPS_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/id_ed25519 ~/.ssh/known_hosts
+
+      - name: Roll back on VPS
+        shell: bash
+        env:
+          VPS_DEPLOY_HOST: ${{ vars.VPS_DEPLOY_HOST }}
+          VPS_DEPLOY_PORT: ${{ vars.VPS_DEPLOY_PORT }}
+          VPS_DEPLOY_USER: ${{ vars.VPS_DEPLOY_USER }}
+          DEPLOY_ROOT: /home/developpeur/app-infra/maddevops
+        run: |
+          set -euo pipefail
+          test -n "$VPS_DEPLOY_HOST"
+          test -n "$VPS_DEPLOY_PORT"
+          test -n "$VPS_DEPLOY_USER"
+          remote="$VPS_DEPLOY_USER@$VPS_DEPLOY_HOST"
+          ssh -i ~/.ssh/id_ed25519 -p "$VPS_DEPLOY_PORT" "$remote" \
+            "'$DEPLOY_ROOT/bin/rollback-release.sh' '${{ inputs.release_sha }}'"
+
+      - name: Smoke production publicly
+        shell: bash
+        run: curl --fail --silent --show-error --max-time 20 https://www.maddevops.com/ >/dev/null

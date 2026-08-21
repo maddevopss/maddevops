@@ -1,181 +1,215 @@
 <!doctype html>
 <html lang="fr-CA">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Marc-André Dufour | MAD DevOps</title>
-    <meta name="description" content="Carte de visite virtuelle de Marc-André Dufour, MAD DevOps." />
-    <link rel="icon" href="./img/logo.webp" type="image/webp" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-    
-    <!-- Utilisation de vos variables de base pour rester consistant avec votre image de marque -->
-    <link rel="stylesheet" href="./assets/css/variables.css" />
-    <style>
-      :root {
-        --nfc-bg: #0b1120;
-        --nfc-card: #1e293b;
-        --nfc-card-hover: #334155;
-        --nfc-text: #f8fafc;
-        --nfc-muted: #94a3b8;
-        --nfc-border: rgba(255, 255, 255, 0.1);
-        --nfc-primary: #3b82f6; /* Peut être ajusté pour matcher var(--primary) si différent */
-        --nfc-primary-hover: #2563eb;
-      }
-      
-      body {
-        background-color: var(--nfc-bg);
-        color: var(--nfc-text);
-        font-family: 'Inter', system-ui, sans-serif;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 3rem 1.5rem;
-        min-height: 100vh;
-        text-align: center;
-        margin: 0;
-        box-sizing: border-box;
-      }
-      
-      .profile-header {
-        margin-bottom: 2.5rem;
-        animation: fadeInDown 0.6s ease-out;
-      }
-      
-      .profile-img {
-        width: 130px;
-        height: 130px;
-        border-radius: 50%;
-        object-fit: contain;
-        background-color: #fff; /* Pour faire ressortir le logo s'il a un fond transparent */
-        margin-bottom: 1.25rem;
-        border: 4px solid var(--nfc-primary);
-        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
-      }
-      
-      h1 {
-        font-size: 1.85rem;
-        margin: 0 0 0.5rem 0;
-        font-weight: 800;
-        letter-spacing: -0.025em;
-      }
-      
-      .title {
-        font-size: 1.05rem;
-        color: var(--nfc-muted);
-        margin: 0 0 1rem 0;
-        font-weight: 400;
-      }
-      
-      .bio {
-        font-size: 0.95rem;
-        color: var(--nfc-text);
-        max-width: 320px;
-        margin: 0 auto;
-        line-height: 1.5;
-        opacity: 0.9;
-      }
-      
-      .links-container {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        width: 100%;
-        max-width: 360px;
-        animation: fadeInUp 0.6s ease-out 0.2s both;
-      }
-      
-      .link-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.75rem;
-        background-color: var(--nfc-card);
-        color: var(--nfc-text);
-        text-decoration: none;
-        padding: 1.15rem;
-        border-radius: 14px;
-        font-weight: 600;
-        font-size: 1rem;
-        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid var(--nfc-border);
-      }
-      
-      .link-btn:hover, .link-btn:focus, .link-btn:active {
-        background-color: var(--nfc-card-hover);
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      }
-      
-      .link-btn.primary {
-        background-color: var(--nfc-primary);
-        color: #ffffff;
-        border: none;
-        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
-      }
-      
-      .link-btn.primary:hover {
-        background-color: var(--nfc-primary-hover);
-        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
-      }
-      
-      .icon {
-        width: 22px;
-        height: 22px;
-        flex-shrink: 0;
-      }
-      
-      .footer {
-        margin-top: auto;
-        padding-top: 4rem;
-        font-size: 0.85rem;
-        color: var(--nfc-muted);
-        opacity: 0.7;
-      }
-      
-      @keyframes fadeInDown {
-        from { opacity: 0; transform: translateY(-20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      
-      @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-    </style>
-  </head>
-  <body>
-    
-    <div class="profile-header">
-      <img src="./img/logo.png" alt="MAD DevOps Logo" class="profile-img" />
-      <h1>Marc-André Dufour</h1>
-      <p class="title">Fondateur & Expert DevOps</p>
-      <p class="bio">J'aide les entreprises à simplifier, automatiser et bâtir des infrastructures cloud robustes.</p>
-    </div>
 
-    <div class="links-container">
-      <!-- Bouton principal : Téléchargement du contact -->
-      <a href="./madufour.vcf" class="link-btn primary" download="madufour.vcf">
-        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-        Enregistrer le contact
-      </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marc-André Dufour | MAD DevOps</title>
+  <meta name="description" content="Carte de visite virtuelle de Marc-André Dufour, MAD DevOps." />
+  <link rel="icon" href="./img/logo_media.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
 
-      <!-- Bouton Site web -->
-      <a href="./index.html" class="link-btn">
-        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-        Visiter maddevops.com
-      </a>
+  <!-- Utilisation de vos variables de base pour rester consistant avec votre image de marque -->
+  <link rel="stylesheet" href="./assets/css/variables.css" />
+  <style>
+    :root {
+      --nfc-bg: #0b1120;
+      --nfc-card: #1e293b;
+      --nfc-card-hover: #334155;
+      --nfc-text: #f8fafc;
+      --nfc-muted: #94a3b8;
+      --nfc-border: rgba(255, 255, 255, 0.1);
+      --nfc-primary: #3b82f6;
+      /* Peut être ajusté pour matcher var(--primary) si différent */
+      --nfc-primary-hover: #2563eb;
+    }
 
-      <!-- Bouton Contact -->
-      <a href="./contact.html" class="link-btn">
-        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-        Prendre contact
-      </a>
-    </div>
+    body {
+      background-color: var(--nfc-bg);
+      color: var(--nfc-text);
+      font-family: 'Inter', system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1.5rem;
+      min-height: 100vh;
+      text-align: center;
+      margin: 0;
+      box-sizing: border-box;
+    }
 
-    <footer class="footer">
-      © 2026 MAD DevOps
-    </footer>
-  </body>
+    .profile-header {
+      margin-bottom: 2.5rem;
+      animation: fadeInDown 0.6s ease-out;
+    }
+
+    .profile-img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: contain;
+      background-color: #fff;
+      /* Pour faire ressortir le logo s'il a un fond transparent */
+      margin-bottom: 1.25rem;
+      border: 4px solid var(--nfc-primary);
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      margin: 0 0 0.5rem 0;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+
+    .title {
+      font-size: 1.05rem;
+      color: var(--nfc-muted);
+      margin: 0 0 1rem 0;
+      font-weight: 400;
+    }
+
+    .bio {
+      font-size: 0.95rem;
+      color: var(--nfc-text);
+      max-width: 320px;
+      margin: 0 auto;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+
+    .links-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      max-width: 360px;
+      animation: fadeInUp 0.6s ease-out 0.2s both;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      background-color: var(--nfc-card);
+      color: var(--nfc-text);
+      text-decoration: none;
+      padding: 1.15rem;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid var(--nfc-border);
+    }
+
+    .link-btn:hover,
+    .link-btn:focus,
+    .link-btn:active {
+      background-color: var(--nfc-card-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .link-btn.primary {
+      background-color: var(--nfc-primary);
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    }
+
+    .link-btn.primary:hover {
+      background-color: var(--nfc-primary-hover);
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+    }
+
+    .icon {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    .footer {
+      margin-top: auto;
+      padding-top: 4rem;
+      font-size: 0.85rem;
+      color: var(--nfc-muted);
+      opacity: 0.7;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="profile-header">
+    <img src="./img/logo.png" alt="MAD DevOps Logo" class="profile-img" />
+    <h1>Marc-André Dufour</h1>
+    <p class="title">Président MAD DevOps</p>
+    <p class="bio">J'aide les entreprises à simplifier, automatiser et bâtir des infrastructures informatiques robustes
+      et sécuritaires.</p>
+  </div>
+
+  <div class="links-container">
+    <!-- Bouton principal : Téléchargement du contact -->
+    <a href="./madufour.vcf" class="link-btn primary" download="madufour.vcf">
+      <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+          d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+        </path>
+      </svg>
+      Enregistrer le contact
+    </a>
+
+    <!-- Bouton Site web -->
+    <a href="./index.html" class="link-btn">
+      <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+        </path>
+      </svg>
+      Visiter maddevops.com
+    </a>
+
+    <!-- Bouton Contact -->
+    <a href="./contact.html" class="link-btn">
+      <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+        </path>
+      </svg>
+      Prendre contact
+    </a>
+  </div>
+
+  <footer class="footer">
+    © 2026 MAD DevOps
+  </footer>
+</body>
+
 </html>
