@@ -1,0 +1,128 @@
+name: Deploy production
+
+on:
+  workflow_run:
+    workflows: [Static site smoke]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: maddevops-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push')
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://www.maddevops.com
+    steps:
+      - name: Resolve release SHA
+        id: release
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_run" ]; then
+            release_sha="${{ github.event.workflow_run.head_sha }}"
+          else
+            release_sha="$GITHUB_SHA"
+          fi
+          [[ "$release_sha" =~ ^[0-9a-f]{40}$ ]]
+          echo "sha=$release_sha" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout immutable release
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.release.outputs.sha }}
+          fetch-depth: 1
+
+      - name: Revalidate deployable source
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f index.html
+          test -f contact.html
+          test -f api/contact.php
+          php -l api/contact.php
+          if grep -q 'innerHTML' contact.html assets/js/contact-form.js; then
+            echo 'contact form should not use innerHTML'
+            exit 1
+          fi
+
+      - name: Build immutable archive
+        id: archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="maddevops-${{ steps.release.outputs.sha }}.tgz"
+          git archive --format=tar "${{ steps.release.outputs.sha }}" | gzip -n > "$archive"
+          sha256sum "$archive" > "$archive.sha256"
+          echo "file=$archive" >> "$GITHUB_OUTPUT"
+
+      - name: Configure verified SSH
+        shell: bash
+        env:
+          VPS_DEPLOY_KEY: ${{ secrets.VPS_DEPLOY_KEY }}
+          VPS_KNOWN_HOSTS: ${{ secrets.VPS_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          test -n "$VPS_DEPLOY_KEY"
+          test -n "$VPS_KNOWN_HOSTS"
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$VPS_DEPLOY_KEY" > ~/.ssh/id_ed25519
+          printf '%s\n' "$VPS_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/id_ed25519 ~/.ssh/known_hosts
+
+      - name: Deploy and verify locally on VPS
+        shell: bash
+        env:
+          VPS_DEPLOY_HOST: ${{ vars.VPS_DEPLOY_HOST }}
+          VPS_DEPLOY_PORT: ${{ vars.VPS_DEPLOY_PORT }}
+          VPS_DEPLOY_USER: ${{ vars.VPS_DEPLOY_USER }}
+          DEPLOY_ROOT: /home/developpeur/app-infra/maddevops
+        run: |
+          set -euo pipefail
+          test -n "$VPS_DEPLOY_HOST"
+          test -n "$VPS_DEPLOY_PORT"
+          test -n "$VPS_DEPLOY_USER"
+          remote="$VPS_DEPLOY_USER@$VPS_DEPLOY_HOST"
+          ssh -i ~/.ssh/id_ed25519 -p "$VPS_DEPLOY_PORT" "$remote" "mkdir -p '$DEPLOY_ROOT/incoming' '$DEPLOY_ROOT/bin'"
+          scp -i ~/.ssh/id_ed25519 -P "$VPS_DEPLOY_PORT" \
+            "${{ steps.archive.outputs.file }}" \
+            "${{ steps.archive.outputs.file }}.sha256" \
+            "$remote:$DEPLOY_ROOT/incoming/"
+          scp -i ~/.ssh/id_ed25519 -P "$VPS_DEPLOY_PORT" \
+            ops/production/deploy-release.sh \
+            ops/production/rollback-release.sh \
+            "$remote:$DEPLOY_ROOT/bin/"
+          scp -i ~/.ssh/id_ed25519 -P "$VPS_DEPLOY_PORT" \
+            ops/production/docker-compose.yml \
+            "$remote:$DEPLOY_ROOT/docker-compose.yml"
+          scp -i ~/.ssh/id_ed25519 -P "$VPS_DEPLOY_PORT" \
+            ops/production/nginx.conf \
+            "$remote:$DEPLOY_ROOT/nginx.conf"
+          scp -i ~/.ssh/id_ed25519 -P "$VPS_DEPLOY_PORT" \
+            ops/production/Dockerfile.php \
+            "$remote:$DEPLOY_ROOT/Dockerfile.php"
+          ssh -i ~/.ssh/id_ed25519 -p "$VPS_DEPLOY_PORT" "$remote" \
+            "chmod 750 '$DEPLOY_ROOT/bin/deploy-release.sh' '$DEPLOY_ROOT/bin/rollback-release.sh' && '$DEPLOY_ROOT/bin/deploy-release.sh' '${{ steps.release.outputs.sha }}' '$DEPLOY_ROOT/incoming/${{ steps.archive.outputs.file }}'"
+
+      - name: Smoke production publicly
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3 4 5; do
+            if curl --fail --silent --show-error --max-time 20 https://www.maddevops.com/ >/dev/null; then
+              exit 0
+            fi
+            echo "public smoke attempt $attempt failed; retrying"
+            sleep 5
+          done
+          exit 1
